@@ -1,5 +1,6 @@
-import { Border } from '@/components/Border'
 import { FadeIn, FadeInStagger } from '@/components/FadeIn'
+
+import { Border } from '@/components/Border'
 
 export function StatList({
   children,
@@ -26,7 +27,7 @@ export function StatListItem({
   return (
     <Border as={FadeIn} position="left" className="flex flex-col-reverse pl-8">
       <dt className="mt-2 text-base text-neutral-600">{label}</dt>
-      <dd className="font-display text-3xl font-semibold text-neutral-950 sm:text-4xl">
+      <dd className="font-display text-3xl font-semibold text-sky-800 sm:text-4xl">
         {value}
       </dd>
     </Border>

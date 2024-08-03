@@ -1,10 +1,10 @@
-import clsx from 'clsx'
+import { StatList, StatListItem } from '@/components/StatList'
+import { TagList, TagListItem } from '@/components/TagList'
 
 import { Blockquote } from '@/components/Blockquote'
 import { Border } from '@/components/Border'
 import { GrayscaleTransitionImage } from '@/components/GrayscaleTransitionImage'
-import { StatList, StatListItem } from '@/components/StatList'
-import { TagList, TagListItem } from '@/components/TagList'
+import clsx from 'clsx'
 
 export const MDXComponents = {
   Blockquote({
@@ -74,7 +74,7 @@ export const MDXComponents = {
   }) {
     return (
       <Border position="left" className={clsx('my-10 pl-8', className)}>
-        <p className="font-display text-sm font-bold uppercase tracking-widest text-neutral-950">
+        <p className="font-display text-sm font-bold uppercase tracking-widest text-sky-800">
           Top tip
         </p>
         <div className="mt-4">{children}</div>

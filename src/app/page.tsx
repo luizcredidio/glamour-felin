@@ -9,36 +9,29 @@ import { List, ListItem } from '@/components/List'
 import { SectionIntro } from '@/components/SectionIntro'
 import { StylizedImage } from '@/components/StylizedImage'
 import { Testimonial } from '@/components/Testimonial'
-import logoBrightPath from '@/images/clients/bright-path/logo-light.svg'
-import logoFamilyFund from '@/images/clients/family-fund/logo-light.svg'
-import logoGreenLife from '@/images/clients/green-life/logo-light.svg'
-import logoHomeWork from '@/images/clients/home-work/logo-light.svg'
-import logoMailSmirk from '@/images/clients/mail-smirk/logo-light.svg'
-import logoNorthAdventures from '@/images/clients/north-adventures/logo-light.svg'
-import logoPhobiaDark from '@/images/clients/phobia/logo-dark.svg'
-import logoPhobiaLight from '@/images/clients/phobia/logo-light.svg'
-import logoUnseal from '@/images/clients/unseal/logo-light.svg'
-import imageLaptop from '@/images/laptop.jpg'
-import { type CaseStudy, type MDXEntry, loadCaseStudies } from '@/lib/mdx'
-
+import catGroomingBg from '@/images/cat-grooming-bg.jpg'
+import pawLogo from '@/images/paw-logo.svg'
+import pawBadge from '@/images/paw-badge.svg'
+import pawComment from '@/images/paw-comment.svg'
 const clients = [
-  ['Phobia', logoPhobiaLight],
-  ['Family Fund', logoFamilyFund],
-  ['Unseal', logoUnseal],
-  ['Mail Smirk', logoMailSmirk],
-  ['Home Work', logoHomeWork],
-  ['Green Life', logoGreenLife],
-  ['Bright Path', logoBrightPath],
-  ['North Adventures', logoNorthAdventures],
+  ['Domestic Shorthair', pawLogo],
+  ['American Shorthair', pawLogo],
+  ['Domestic Longhair', pawLogo],
+  ['Ragdoll', pawLogo],
+  ['Siamese', pawLogo],
+  ['Bengal', pawLogo],
+  ['British Shorthair', pawLogo],
+  ['Persian', pawLogo],
+  ['Sphynx', pawLogo],
 ]
 
 function Clients() {
   return (
-    <div className="mt-24 rounded-4xl bg-neutral-950 py-20 sm:mt-32 sm:py-32 lg:mt-56">
+    <div className="mt-24 rounded-4xl bg-sky-800 py-20 sm:mt-32 sm:py-32 lg:mt-56">
       <Container>
         <FadeIn className="flex items-center gap-x-8">
           <h2 className="text-center font-display text-sm font-semibold tracking-wider text-white sm:text-left">
-            We’ve worked with hundreds of amazing people
+            We’ve worked with many different breeds
           </h2>
           <div className="h-px flex-auto bg-neutral-800" />
         </FadeIn>
@@ -49,8 +42,11 @@ function Clients() {
           >
             {clients.map(([client, logo]) => (
               <li key={client}>
-                <FadeIn>
-                  <Image src={logo} alt={client} unoptimized />
+                <FadeIn className="flex">
+                  <Image className="w-10" src={logo} alt={client} unoptimized />
+                  <span className="mt-2 block text-lg text-white">
+                    {client}
+                  </span>
                 </FadeIn>
               </li>
             ))}
@@ -61,56 +57,49 @@ function Clients() {
   )
 }
 
-function CaseStudies({
-  caseStudies,
+function BenefitsSection({
+  benefits,
 }: {
-  caseStudies: Array<MDXEntry<CaseStudy>>
+  benefits: Array<{
+    logo: string
+    client: string
+    title: string
+    description: string
+  }>
 }) {
   return (
     <>
       <SectionIntro
-        title="Harnessing technology for a brighter future"
+        title="Why Glamour Félin?"
         className="mt-24 sm:mt-32 lg:mt-40"
       >
         <p>
-          We believe technology is the answer to the world’s greatest
-          challenges. It’s also the cause, so we find ourselves in bit of a
-          catch 22 situation.
+          We have a proven track record of delivering results for our clients.
+          Here are a few reasons why you should choose Glamour Félin.
         </p>
       </SectionIntro>
       <Container className="mt-16">
         <FadeInStagger className="grid grid-cols-1 gap-8 lg:grid-cols-3">
-          {caseStudies.map((caseStudy) => (
-            <FadeIn key={caseStudy.href} className="flex">
-              <article className="relative flex w-full flex-col rounded-3xl p-6 ring-1 ring-neutral-950/5 transition hover:bg-neutral-50 sm:p-8">
-                <h3>
-                  <Link href={caseStudy.href}>
-                    <span className="absolute inset-0 rounded-3xl" />
-                    <Image
-                      src={caseStudy.logo}
-                      alt={caseStudy.client}
-                      className="h-16 w-16"
-                      unoptimized
-                    />
-                  </Link>
-                </h3>
-                <p className="mt-6 flex gap-x-2 text-sm text-neutral-950">
-                  <time
-                    dateTime={caseStudy.date.split('-')[0]}
-                    className="font-semibold"
-                  >
-                    {caseStudy.date.split('-')[0]}
-                  </time>
-                  <span className="text-neutral-300" aria-hidden="true">
-                    /
+          {benefits.map((benefit, index) => (
+            <FadeIn key={index} className="flex">
+              <article className="relative flex w-full flex-col rounded-3xl p-6 ring-1 ring-sky-800/10 transition hover:bg-neutral-100 sm:p-8">
+                <h3 className="flex items-center gap-x-3">
+                  <span className="absolute inset-0 rounded-3xl" />
+                  <Image
+                    src={benefit.logo}
+                    alt={benefit.client}
+                    className="h-16 w-16"
+                    unoptimized
+                  />
+                  <span className="text-3xl font-bold text-sky-800">
+                    {index + 1}°
                   </span>
-                  <span>Case study</span>
-                </p>
-                <p className="mt-6 font-display text-2xl font-semibold text-neutral-950">
-                  {caseStudy.title}
+                </h3>
+                <p className="mt-6 font-display text-2xl font-semibold text-sky-800">
+                  {benefit.title}
                 </p>
                 <p className="mt-4 text-base text-neutral-600">
-                  {caseStudy.description}
+                  {benefit.description}
                 </p>
               </article>
             </FadeIn>
@@ -126,12 +115,14 @@ function Services() {
     <>
       <SectionIntro
         eyebrow="Services"
-        title="We help you identify, explore and respond to new opportunities."
+        title="We help your cat look and feel their best, while you relax at home."
         className="mt-24 sm:mt-32 lg:mt-40"
       >
         <p>
-          As long as those opportunities involve giving us money to re-purpose
-          old projects — we can come up with an endless number of those.
+          Our team of professional groomers are experts at what they do,
+          ensuring your cat gets the best care. We offer a range of services to
+          help your cat look and feel their best, while you read your favorite
+          book.
         </p>
       </SectionIntro>
       <Container className="mt-16">
@@ -139,31 +130,28 @@ function Services() {
           <div className="flex justify-center lg:w-1/2 lg:justify-end lg:pr-12">
             <FadeIn className="w-[33.75rem] flex-none lg:w-[45rem]">
               <StylizedImage
-                src={imageLaptop}
+                src={catGroomingBg}
                 sizes="(min-width: 1024px) 41rem, 31rem"
                 className="justify-center lg:justify-end"
               />
             </FadeIn>
           </div>
           <List className="mt-16 lg:mt-0 lg:w-1/2 lg:min-w-[33rem] lg:pl-4">
-            <ListItem title="Web development">
-              We specialise in crafting beautiful, high quality marketing pages.
-              The rest of the website will be a shell that uses lorem ipsum
-              everywhere.
+            <ListItem title="Luxury Coat Grooming">
+              A complete coat grooming service to ensure a silky, tangle-free
+              fur your cat will love.
             </ListItem>
-            <ListItem title="Application development">
-              We have a team of skilled developers who are experts in the latest
-              app frameworks, like Angular 1 and Google Web Toolkit.
+            <ListItem title="Pedicure Pampering">
+              Clipping and filing of nails paired with a gentle paw massage for
+              your cat&apos;`s comfort.
             </ListItem>
-            <ListItem title="E-commerce">
-              We are at the forefront of modern e-commerce development. Which
-              mainly means adding your logo to the Shopify store template we’ve
-              used for the past six years.
+            <ListItem title="Soothing Shampoos">
+              Specialty shampoos and conditioners selected for your cat&apos;s
+              specific fur type and skin needs.
             </ListItem>
-            <ListItem title="Custom content management">
-              At Studio we understand the importance of having a robust and
-              customised CMS. That’s why we run all of our client projects out
-              of a single, enormous Joomla instance.
+            <ListItem title="Refreshing Dental Care">
+              Dental brushing services to keep your cat&apos;`s breath fresh and
+              teeth healthy.
             </ListItem>
           </List>
         </div>
@@ -174,38 +162,60 @@ function Services() {
 
 export const metadata: Metadata = {
   description:
-    'We are a development studio working at the intersection of design and technology.',
+    'Glamour Félin is the best at home cat grooming, including nail trimming and shaving. Give your cat the glam it deserves in a stress-free environment: your home!.',
 }
 
 export default async function Home() {
-  let caseStudies = (await loadCaseStudies()).slice(0, 3)
-
+  const benefits = [
+    {
+      logo: pawBadge,
+      client: 'Domestic Shorthair',
+      title: 'Stress-free grooming',
+      description:
+        'We provide a stress-free grooming experience for your cat in the comfort of your home.',
+    },
+    {
+      logo: pawBadge,
+      client: 'American Shorthair',
+      title: 'Professional service',
+      description:
+        'Our team of professional groomers are experts at what they do, ensuring your cat gets the best care.',
+    },
+    {
+      logo: pawBadge,
+      client: 'Domestic Longhair',
+      title: 'Convenient scheduling',
+      description:
+        'We offer convenient scheduling options to fit your busy lifestyle.',
+    },
+  ]
   return (
     <>
       <Container className="mt-24 sm:mt-32 md:mt-56">
         <FadeIn className="max-w-3xl">
-          <h1 className="font-display text-5xl font-medium tracking-tight text-neutral-950 [text-wrap:balance] sm:text-7xl">
-            Award-winning development studio based in Denmark.
+          <h1 className="font-display text-5xl font-medium tracking-tight text-sky-800 [text-wrap:balance] sm:text-7xl">
+            The best at home cat grooming in town
           </h1>
           <p className="mt-6 text-xl text-neutral-600">
-            We are a development studio working at the intersection of design
-            and technology. It’s a really busy intersection though — a lot of
-            our staff have been involved in hit and runs.
+            Glamour Félin is the best at home cat grooming, including nail
+            trimming and shaving. Give your cat the glam it deserves in a
+            stress-free environment: <strong>your home!</strong>
           </p>
         </FadeIn>
       </Container>
 
       <Clients />
 
-      <CaseStudies caseStudies={caseStudies} />
+      <BenefitsSection benefits={benefits} />
 
       <Testimonial
         className="mt-24 sm:mt-32 lg:mt-40"
-        client={{ name: 'Phobia', logo: logoPhobiaDark }}
+        client={{ name: 'Customer', logo: pawComment }}
       >
-        The team at Studio went above and beyond with our onboarding, even
-        finding a way to access the user’s microphone without triggering one of
-        those annoying permission dialogs.
+        I was so impressed with the service I received from Glamour Félin. My
+        cat, Tigris, is usually very anxious around strangers, but the team made
+        him feel comfortable and relaxed. I would highly recommend Glamour Félin
+        to anyone looking for a stress-free grooming experience for their cat.
       </Testimonial>
 
       <Services />

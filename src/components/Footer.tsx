@@ -1,7 +1,6 @@
-import Link from 'next/link'
-
 import { Container } from '@/components/Container'
 import { FadeIn } from '@/components/FadeIn'
+import Link from 'next/link'
 import { Logo } from '@/components/Logo'
 import { socialMediaProfiles } from '@/components/SocialMedia'
 
@@ -43,7 +42,7 @@ function Navigation() {
       <ul role="list" className="grid grid-cols-2 gap-8 sm:grid-cols-3">
         {navigation.map((section, sectionIndex) => (
           <li key={sectionIndex}>
-            <div className="font-display text-sm font-semibold tracking-wider text-neutral-950">
+            <div className="font-display text-sm font-semibold tracking-wider text-sky-800">
               {section.title}
             </div>
             <ul role="list" className="mt-4 text-sm text-neutral-700">
@@ -51,7 +50,7 @@ function Navigation() {
                 <li key={linkIndex} className="mt-4">
                   <Link
                     href={link.href}
-                    className="transition hover:text-neutral-950"
+                    className="transition hover:text-sky-800"
                   >
                     {link.title}
                   </Link>
@@ -81,7 +80,7 @@ function ArrowIcon(props: React.ComponentPropsWithoutRef<'svg'>) {
 function NewsletterForm() {
   return (
     <form className="max-w-sm">
-      <h2 className="font-display text-sm font-semibold tracking-wider text-neutral-950">
+      <h2 className="font-display text-sm font-semibold tracking-wider text-sky-800">
         Sign up for our newsletter
       </h2>
       <p className="mt-4 text-sm text-neutral-700">
@@ -94,13 +93,13 @@ function NewsletterForm() {
           placeholder="Email address"
           autoComplete="email"
           aria-label="Email address"
-          className="block w-full rounded-2xl border border-neutral-300 bg-transparent py-4 pl-6 pr-20 text-base/6 text-neutral-950 ring-4 ring-transparent transition placeholder:text-neutral-500 focus:border-neutral-950 focus:outline-none focus:ring-neutral-950/5"
+          className="block w-full rounded-2xl border border-neutral-300 bg-transparent py-4 pl-6 pr-20 text-base/6 text-sky-800 ring-4 ring-transparent transition placeholder:text-neutral-500 focus:border-sky-800 focus:outline-none focus:ring-sky-800/5"
         />
         <div className="absolute inset-y-1 right-1 flex justify-end">
           <button
             type="submit"
             aria-label="Submit"
-            className="flex aspect-square h-full items-center justify-center rounded-xl bg-neutral-950 text-white transition hover:bg-neutral-800"
+            className="flex aspect-square h-full items-center justify-center rounded-xl bg-sky-800 text-white transition hover:bg-neutral-800"
           >
             <ArrowIcon className="w-4" />
           </button>
@@ -115,17 +114,20 @@ export function Footer() {
     <Container as="footer" className="mt-24 w-full sm:mt-32 lg:mt-40">
       <FadeIn>
         <div className="grid grid-cols-1 gap-x-8 gap-y-16 lg:grid-cols-2">
-          <Navigation />
+          {/* TODO:  <Navigation /> */}
           <div className="flex lg:justify-end">
-            <NewsletterForm />
+            {/* TODO: <NewsletterForm /> */}
           </div>
         </div>
-        <div className="mb-20 mt-24 flex flex-wrap items-end justify-between gap-x-6 gap-y-4 border-t border-neutral-950/10 pt-12">
+        <div className="mb-20 mt-24 flex flex-wrap items-end justify-between gap-x-6 gap-y-4 border-t border-sky-800/10 pt-12">
           <Link href="/" aria-label="Home">
             <Logo className="h-8" fillOnHover />
+            <span className="text-3xl font-semibold text-sky-900">
+              Glamour Félin
+            </span>
           </Link>
           <p className="text-sm text-neutral-700">
-            © Studio Agency Inc. {new Date().getFullYear()}
+            © Glamour Félin Inc. {new Date().getFullYear()}
           </p>
         </div>
       </FadeIn>

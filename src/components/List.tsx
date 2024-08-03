@@ -1,7 +1,7 @@
-import clsx from 'clsx'
+import { FadeIn, FadeInStagger } from '@/components/FadeIn'
 
 import { Border } from '@/components/Border'
-import { FadeIn, FadeInStagger } from '@/components/FadeIn'
+import clsx from 'clsx'
 
 export function List({
   children,
@@ -31,7 +31,7 @@ export function ListItem({
       <FadeIn>
         <Border className="pt-10 group-first:pt-0 group-first:before:hidden group-first:after:hidden">
           {title && (
-            <strong className="font-semibold text-neutral-950">{`${title}. `}</strong>
+            <strong className="font-semibold text-sky-800">{`${title}. `}</strong>
           )}
           {children}
         </Border>
