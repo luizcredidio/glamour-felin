@@ -89,7 +89,7 @@ function Header({
           </svg>
           <span
             className={clsx(
-              'text-3xl font-semibold',
+              'hidden text-3xl font-semibold sm:block',
               invert ? 'text-amber-300' : 'text-sky-900',
             )}
           >

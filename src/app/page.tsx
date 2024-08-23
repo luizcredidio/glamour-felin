@@ -44,9 +44,7 @@ function Clients() {
               <li key={client}>
                 <FadeIn className="flex">
                   <Image className="w-10" src={logo} alt={client} unoptimized />
-                  <span className="mt-2 block text-lg text-white">
-                    {client}
-                  </span>
+                  <span className="mt-2 block text-white">{client}</span>
                 </FadeIn>
               </li>
             ))}
@@ -212,10 +210,8 @@ export default async function Home() {
         className="mt-24 sm:mt-32 lg:mt-40"
         client={{ name: 'Customer', logo: pawComment }}
       >
-        I was so impressed with the service I received from Glamour Félin. My
-        cat, Tigris, is usually very anxious around strangers, but the team made
-        him feel comfortable and relaxed. I would highly recommend Glamour Félin
-        to anyone looking for a stress-free grooming experience for their cat.
+        Glamour Félin is fantastic! They&apos;re quick and efficient, plus very
+        gentle. My cat even rubbed up against them before they left.
       </Testimonial>
 
       <Services />

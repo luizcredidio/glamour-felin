@@ -33,7 +33,8 @@ export function Testimonial({
                 {children}
               </p>
             </blockquote>
-            <figcaption className="mt-10">
+            <figcaption className="mt-10 flex items-center">
+              <span className="font-semibold">Tania Garby</span>
               <Image src={client.logo} alt={client.name} unoptimized />
             </figcaption>
           </figure>
